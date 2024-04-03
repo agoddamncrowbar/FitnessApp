@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
+import 'package:shared_preferences/shared_preferences.dart';
+>>>>>>> 60068e0 (fitness app without login logic)
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'screens/workoutlist.dart';
 Future main() async {
@@ -20,6 +24,19 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+<<<<<<< HEAD
+=======
+  var email;
+  var pass;
+  getSavedData() async{
+    final prefs = await SharedPreferences.getInstance();
+    email = prefs.getString('email');
+    pass = prefs.getString('pass');
+  } 
+  final unameController = TextEditingController();
+  final passController = TextEditingController();
+  final emailController = TextEditingController();
+>>>>>>> 60068e0 (fitness app without login logic)
   @override
   Widget build(BuildContext context) {
    return MaterialApp(
@@ -47,6 +64,10 @@ class _MyAppState extends State<MyApp> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: TextFormField(
+<<<<<<< HEAD
+=======
+                  controller: emailController,
+>>>>>>> 60068e0 (fitness app without login logic)
                   keyboardType: TextInputType.emailAddress,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
@@ -72,6 +93,7 @@ class _MyAppState extends State<MyApp> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: TextFormField(
+<<<<<<< HEAD
                         keyboardType: TextInputType.visiblePassword,
                         style: TextStyle(color: Colors.white),
                         decoration: const InputDecoration(
@@ -82,6 +104,19 @@ class _MyAppState extends State<MyApp> {
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.orange)
                           ),
+=======
+                          controller: passController,
+                          keyboardType: TextInputType.visiblePassword,
+                          style: TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Password',
+                            labelStyle: TextStyle(color: Colors.orange),
+                            hintText: 'Enter Your Password',
+                            prefixIcon: Icon(Icons.password, color: Colors.orange),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.orange)
+                            ),
+>>>>>>> 60068e0 (fitness app without login logic)
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.orange)
                           )
@@ -115,10 +150,21 @@ class _MyAppState extends State<MyApp> {
                     setState(() {
                       debugPrint("Login button clicked");
                     });
+<<<<<<< HEAD
                     Navigator.push(context, MaterialPageRoute(
                               builder: (context){
                             return WorkoutList();
           }));
+=======
+                    getSavedData();
+                    if(email==emailController.text&&pass==passController.text){
+                      Navigator.push(context, MaterialPageRoute(
+                              builder: (context){
+                            return WorkoutList();
+          }));
+          }
+                    
+>>>>>>> 60068e0 (fitness app without login logic)
 
                   }, 
               child: 
@@ -127,10 +173,15 @@ class _MyAppState extends State<MyApp> {
                 style: TextStyle(color: Colors.white,fontSize: 20),
                 )   
               ),
+<<<<<<< HEAD
             ),
             
             Container(width: 20.0,),
             
+=======
+            ),    
+            Container(width: 20.0,),
+>>>>>>> 60068e0 (fitness app without login logic)
             Expanded(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -142,17 +193,25 @@ class _MyAppState extends State<MyApp> {
                       debugPrint("Register button clicked");
                     });
                     Navigator.push(context, MaterialPageRoute(
+<<<<<<< HEAD
                               builder: (context) =>Page2())
                             );
 
+=======
+                              builder: (context) =>const Page2())
+                            );
+>>>>>>> 60068e0 (fitness app without login logic)
                   }, 
               child: 
               const Text(
                 'Register',
                 style: TextStyle(color: Colors.white,fontSize: 20),
                 )
+<<<<<<< HEAD
                 
                 
+=======
+>>>>>>> 60068e0 (fitness app without login logic)
               ),
             ),
           ],
@@ -178,6 +237,12 @@ class Page2 extends StatefulWidget {
 
 class _Page2State extends State<Page2> {
   @override
+<<<<<<< HEAD
+=======
+  final unameController = TextEditingController();
+  final passController = TextEditingController();
+  final emailController = TextEditingController();
+>>>>>>> 60068e0 (fitness app without login logic)
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -224,10 +289,18 @@ class _Page2State extends State<Page2> {
                           },
                         ),
                     ),
+<<<<<<< HEAD
                       SizedBox(height: 30,),
                   Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: TextFormField(
+=======
+                     const SizedBox(height: 30,),
+                  Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: TextFormField(
+                  controller: unameController,
+>>>>>>> 60068e0 (fitness app without login logic)
                   keyboardType: TextInputType.emailAddress,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
@@ -253,6 +326,10 @@ class _Page2State extends State<Page2> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: TextFormField(
+<<<<<<< HEAD
+=======
+                  controller: emailController,
+>>>>>>> 60068e0 (fitness app without login logic)
                   keyboardType: TextInputType.emailAddress,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
@@ -278,6 +355,7 @@ class _Page2State extends State<Page2> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: TextFormField(
+<<<<<<< HEAD
                         keyboardType: TextInputType.visiblePassword,
                         style: TextStyle(color: Colors.white),
                         decoration: const InputDecoration(
@@ -287,6 +365,18 @@ class _Page2State extends State<Page2> {
                           prefixIcon: Icon(Icons.password, color: Colors.orange),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.orange)
+=======
+                          controller: passController,
+                          keyboardType: TextInputType.visiblePassword,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: 'Password',
+                            labelStyle: TextStyle(color: Colors.orange),
+                            hintText: 'Enter Your Password',
+                            prefixIcon: Icon(Icons.password, color: Colors.orange),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.orange)
+>>>>>>> 60068e0 (fitness app without login logic)
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.orange)
@@ -319,10 +409,23 @@ class _Page2State extends State<Page2> {
                   side: const BorderSide(color: Colors.orange,width: 5),
                   backgroundColor: Colors.black,
                 ),
+<<<<<<< HEAD
                 onPressed: () {
                     setState(() {
                       debugPrint("Register button clicked");
                     });
+=======
+                onPressed: () async 
+                  {
+                    FocusScope.of(context).unfocus();
+                    final prefs = await SharedPreferences.getInstance();
+                    await prefs.setString('email',emailController.text);
+                    await prefs.setString('pass',passController.text);
+                    setState(() {
+                      debugPrint("Register button clicked");
+                    });
+                    
+>>>>>>> 60068e0 (fitness app without login logic)
                     Navigator.of(context).pop();
                   }, 
               child: 
