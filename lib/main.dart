@@ -93,18 +93,6 @@ class _MyAppState extends State<MyApp> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: TextFormField(
-<<<<<<< HEAD
-                        keyboardType: TextInputType.visiblePassword,
-                        style: TextStyle(color: Colors.white),
-                        decoration: const InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(color: Colors.orange),
-                          hintText: 'Enter Your Password',
-                          prefixIcon: Icon(Icons.password, color: Colors.orange),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.orange)
-                          ),
-=======
                           controller: passController,
                           keyboardType: TextInputType.visiblePassword,
                           style: TextStyle(color: Colors.white),
