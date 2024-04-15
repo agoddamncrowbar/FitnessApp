@@ -34,12 +34,20 @@ class WorkoutListState extends State<WorkoutList>{
       titleTextStyle: const TextStyle(color: Colors.orange, fontSize: 25, fontWeight: FontWeight.bold),
       ),
       backgroundColor: Colors.black,
-      body: getWorkoutListView(),
+      body: 
+        Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(image: AssetImage("lib/images/bg.jpg"), fit: BoxFit.cover,),
+          ),
+          child: getWorkoutListView(),
+      ),
+      
+
       floatingActionButton: FloatingActionButton(
         child: 
         const Icon(Icons.add),
         onPressed: (){
-          debugPrint('FAB clicked');
+          debugPrint('Add button clicked');
           Navigator.push(context, MaterialPageRoute(builder: (context){
             return const Workout();
           }));
@@ -62,13 +70,27 @@ class WorkoutListState extends State<WorkoutList>{
             ),
             title: Text(dataList[index]['w_name'],style: titleStyle,),
             subtitle: Text(dataList[index]['w_desc']),
-            trailing: const Icon(Icons.delete, color: Colors.grey,),
+            trailing: const Icon(
+              Icons.delete, 
+              color: Colors.grey,),
             onTap: () {
-              debugPrint("Tap");
+              debugPrint("Delete button pressed");
+              _deleteWorkout(dataList[index]['id']); // Pass the ID of the workout to delete
+
             },
             ),
             );
       },
       );
+  }
+}
+void _deleteWorkout(int id) async {
+  // Call the deleteWorkout method from DatabaseHelper and pass the id
+  int result = await DatabaseHelper.deleteWorkout(id);
+  if (result != 0) {
+    // If result is not 0, then deletion was successful
+    debugPrint('Workout deleted successfully');
+  } else {
+    debugPrint('Error deleting workout');
   }
 }

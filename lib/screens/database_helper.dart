@@ -33,4 +33,8 @@ class DatabaseHelper
     final db = await _openDatabase();  
     return await db.query('workout');
   }
+  static Future<int> deleteWorkout(int id) async {
+    final db = await _openDatabase();
+    return await db.delete('workout', where: 'id = ?', whereArgs: [id]);
+  }
 }

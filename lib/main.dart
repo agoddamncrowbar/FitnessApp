@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -86,7 +88,8 @@ class _MyAppState extends State<MyApp> {
                         child: TextFormField(
                           controller: passController,
                           keyboardType: TextInputType.visiblePassword,
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
+                          obscureText: true,
                           decoration: const InputDecoration(
                             labelText: 'Password',
                             labelStyle: TextStyle(color: Colors.orange),
@@ -157,8 +160,7 @@ class _MyAppState extends State<MyApp> {
                       debugPrint("Register button clicked");
                     });
                     Navigator.push(context, MaterialPageRoute(
-                              builder: (context) =>const Page2())
-                            );
+                              builder: (context) =>const Page2()));
                   }, 
               child: 
               const Text(
