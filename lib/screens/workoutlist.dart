@@ -1,12 +1,15 @@
+// ignore_for_file: no_logic_in_create_state
 import 'package:flutter/material.dart';
 import 'package:projects/screens/workout.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 import 'database_helper.dart';
 class WorkoutList extends StatefulWidget{
+  const WorkoutList({super.key});
   @override
   State<StatefulWidget> createState(){
     sqfliteFfiInit();
-    databaseFactory = databaseFactoryFfi;
+    databaseFactory = databaseFactoryFfiWeb;
     return WorkoutListState();
   }
 }
@@ -23,7 +26,7 @@ class WorkoutListState extends State<WorkoutList>{
   void initState() {
     _fetchWorkouts();
     super.initState();
-  }
+  } 
   int count = 10;
   @override
   Widget build(BuildContext context) {
@@ -64,10 +67,7 @@ class WorkoutListState extends State<WorkoutList>{
           color: Colors.white,
           elevation: 2.0,
           child: ListTile(
-            leading: const CircleAvatar(
-            backgroundColor: Colors.red,
-            child: Icon(Icons.keyboard_arrow_right),
-            ),
+            leading: const CircleAvatar( backgroundColor: Colors.red,child: Icon(Icons.keyboard_arrow_right),),
             title: Text(dataList[index]['w_name'],style: titleStyle,),
             subtitle: Text(dataList[index]['w_desc']),
             trailing: const Icon(
@@ -76,12 +76,16 @@ class WorkoutListState extends State<WorkoutList>{
             onTap: () {
               debugPrint("Delete button pressed");
               _deleteWorkout(dataList[index]['id']); // Pass the ID of the workout to delete
-
+              _updateUI();
             },
             ),
             );
       },
       );
+  }
+  void _updateUI(){
+    setState(() {
+    });
   }
 }
 void _deleteWorkout(int id) async {

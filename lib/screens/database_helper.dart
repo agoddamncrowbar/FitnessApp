@@ -18,12 +18,12 @@ class DatabaseHelper
     await db.execute('CREATE TABLE IF NOT EXISTS workout (id INTEGER PRIMARY KEY AUTOINCREMENT, w_name TEXT, w_desc TEXT, difficulty TEXT)');
   }
 
-  static Future<int> insertWorkout (String w_name, String w_desc, String difficulty) async
+  static Future<int> insertWorkout (String wName, String wDesc, String difficulty) async
   {
     final db = await _openDatabase();
     final data = 
     {
-      'w_name' : w_name,'w_desc':w_desc,'difficulty':difficulty,
+      'w_name' : wName,'w_desc':wDesc,'difficulty':difficulty,
     };
     return await db.insert('workout', data);
   }

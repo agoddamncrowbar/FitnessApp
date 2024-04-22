@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 import 'database_helper.dart';
 class Workout extends StatefulWidget{
   const Workout({super.key});
@@ -9,7 +10,7 @@ class Workout extends StatefulWidget{
   // ignore: no_logic_in_create_state
   State<StatefulWidget> createState() {
     sqfliteFfiInit();
-    databaseFactory = databaseFactoryFfi;
+    databaseFactory = databaseFactoryFfiWeb;
     return WorkoutState();
   }
 }
